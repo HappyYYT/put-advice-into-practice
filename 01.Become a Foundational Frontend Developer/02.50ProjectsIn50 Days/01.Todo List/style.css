@@ -1,0 +1,82 @@
+body {
+  font-size: 15px/1.5 Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  background: #35424a;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global */
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+header#to-do-list {
+  min-height: 70px;
+  padding-top: 30px;
+  text-align: center;
+  color: #ffbd2a;
+}
+
+header#to-do-list h1 {
+  font-size: 48px;
+  margin: 0;
+}
+
+/* section */
+.enter-todo {
+  text-align: center;
+  padding: 10px 0 20px 0;
+}
+
+.enter-todo input {
+  width: 40%;
+  font-size: 16px;
+  min-height: 40px;
+  padding-left: 10px;
+}
+
+.showcase {
+  width: 100%;
+  text-align: center;
+}
+
+.showcase .list {
+  width: 24%;
+  float: left;
+}
+
+.showcase .list h3 {
+  padding: 10px 0 10px 0;
+  background: #ffbd2a;
+  color: #35424a;
+  border: 4px dotted #35424a;
+}
+
+.showcase .list li {
+  color: #ffbd2a;
+  /* background: #ffbd2a; */
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.showcase .list li:hover {
+  font-weight: bold;
+}
+
+aside.explain {
+  text-align: center;
+  color: #f4f4f4;
+}
+
+aside.explain p {
+  margin: 0;
+}
