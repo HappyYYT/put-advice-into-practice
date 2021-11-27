@@ -10,8 +10,8 @@ document.addEventListener("keydown", (e) => {
 });
 
 document.addEventListener("click", (e) => {
-  if (e.target.className === "item") {
-    toggleItem(e.target);
+  if (e.target.classList.contains("item")) {
+    e.target.classList.toggle("completed");
   }
 });
 
@@ -27,14 +27,6 @@ function removeLastChild(parentNode, listNode) {
   parentNode.removeChild(parentNode.lastElementChild);
   if (parentNode.lastElementChild === null) {
     listNode.parentNode.removeChild(listNode);
-  }
-}
-
-function toggleItem(el) {
-  if (el.style.textDecoration === "line-through") {
-    el.style.textDecoration = "none";
-  } else {
-    el.style.textDecoration = "line-through";
   }
 }
 

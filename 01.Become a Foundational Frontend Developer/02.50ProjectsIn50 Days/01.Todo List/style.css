@@ -68,6 +68,10 @@ header#to-do-list h1 {
   cursor: pointer;
 }
 
+.showcase .list li.completed {
+  text-decoration: line-through;
+}
+
 .showcase .list li:hover {
   font-weight: bold;
 }
