@@ -6,11 +6,22 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <header id="to-do-list">
+    <header class="to-do-list">
       <div class="container">
         <h1>TODO Lists</h1>
       </div>
     </header>
+    <section class="keep-lists">
+      <div class="container">
+        keep lists
+        <input type="radio" id="keep3" name="keep" checked />
+        <label for="keep3">for 3 days</label>
+        <input type="radio" id="keep7" name="keep" />
+        <label for="keep7">for 7 days</label>
+        <input type="radio" id="keep30" name="keep" />
+        <label for="keep30">for 30 days</label>
+      </div>
+    </section>
     <section class="enter-todo">
       <div class="container">
         <input class="input-todo" type="text" placeholder="Enter your todo" />
@@ -24,13 +35,7 @@
     </aside>
     <section class="showcase">
       <div class="container">
-        <div class="list">
-          <h3 class="date">2021/11/26 Friday</h3>
-          <ul>
-            <li class="item completed">看电视</li>
-            <li class="item">玩游戏</li>
-          </ul>
-        </div>
+        <div class="lists"></div>
       </div>
     </section>
   </body>
