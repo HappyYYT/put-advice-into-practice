@@ -11,17 +11,6 @@
         <h1>TODO Lists</h1>
       </div>
     </header>
-    <section class="keep-lists">
-      <div class="container">
-        keep lists
-        <input type="radio" id="keep3" name="keep" checked />
-        <label for="keep3">for 3 days</label>
-        <input type="radio" id="keep7" name="keep" />
-        <label for="keep7">for 7 days</label>
-        <input type="radio" id="keep30" name="keep" />
-        <label for="keep30">for 30 days</label>
-      </div>
-    </section>
     <section class="enter-todo">
       <div class="container">
         <input class="input-todo" type="text" placeholder="Enter your todo" />
@@ -29,16 +18,34 @@
     </section>
     <aside class="explain">
       <div class="container">
-        <p>Left click to toggle completed</p>
-        <p>Right click to delete todo</p>
-        <p>Drag and Drop to change order</p>
+        <p>Left click to toggle completed.</p>
+        <p>Right click to delete todo.</p>
+        <p>Drag and drop to change order.</p>
       </div>
     </aside>
     <section class="showcase">
       <div class="container">
-        <div class="lists"></div>
+        <div class="lists">
+          <!-- <div class="list">
+            <h3 class="date">2021/11/1 Wednesday</h3>
+            <ul>
+              <li class="todo completed" draggable="true">
+                解答辉辉写的异步习题
+              </li>
+              <li class="todo completed" draggable="true">
+                看懂辉辉在codewars上写的pagehelper
+              </li>
+              <li class="todo completed" draggable="true">
+                看完《Build a Responsive Grid CSS Website Layout From Scratch》
+              </li>
+              <li class="todo completed" draggable="true">
+                至少做一道codewars
+              </li>
+            </ul>
+          </div> -->
+        </div>
       </div>
     </section>
   </body>
-  <script src="./main.js"></script>
+  <script src="./main.js" type="module"></script>
 </html>

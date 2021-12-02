@@ -18,9 +18,10 @@ ul {
   overflow: hidden;
 }
 
+/* Title */
 .to-do-list {
   min-height: 70px;
-  padding: 30px 0;
+  padding: 30px 0 10px 0;
   text-align: center;
   color: #ffbd2a;
 }
@@ -30,7 +31,7 @@ ul {
   margin: 0;
 }
 
-/* section */
+/* input */
 .enter-todo {
   text-align: center;
   padding: 10px 0 20px 0;
@@ -46,6 +47,7 @@ ul {
   box-sizing: border-box;
 }
 
+/* list */
 .showcase {
   width: 100%;
   text-align: center;
@@ -74,18 +76,21 @@ ul {
   text-decoration: line-through;
 }
 
+.showcase .list li.drag {
+  background: #2adeff;
+  color: #35424a;
+}
+
 .showcase .list li:hover {
   font-weight: bold;
 }
 
-aside.explain,
-.keep-lists {
+/* explain */
+
+aside.explain {
   text-align: center;
   color: #f4f4f4;
-}
-
-.keep-lists {
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 aside.explain p {

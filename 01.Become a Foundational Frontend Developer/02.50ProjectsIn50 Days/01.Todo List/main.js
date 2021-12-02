@@ -1,4 +1,34 @@
+import { dateFormatter, getWeek } from "./utils.js";
+import {
+  createTodoListStore,
+  createTodoItemStore,
+  completedTodoItemStore,
+  deleteTodoItemStore,
+  changeTodoOrderStore,
+} from "./store.js";
+import {
+  createTodoList,
+  addTodo,
+  completedTodo,
+  removeTodo,
+  changeTodoOrder,
+} from "./node.js";
+import { loadPolyfill } from "./polyfill.js";
+
+function loadLists() {
+  const todoLists = JSON.parse(localStorage.getItem("todoLists"));
+  if (todoLists) {
+    todoLists.forEach((todoList) => {
+      createTodoList(todoList);
+    });
+  }
+}
+
 loadLists();
+
+loadPolyfill();
+
+// Enter your todo
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
@@ -35,6 +65,7 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+// Left click to toggle completed.
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("todo")) {
     completedTodo(e.target);
@@ -43,6 +74,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// Right click to delete todo.
 document.addEventListener("contextmenu", (e) => {
   if (e.target.classList.contains("todo")) {
     const listNode = e.target.parentNode.parentNode;
@@ -58,113 +90,53 @@ document.addEventListener("contextmenu", (e) => {
   }
 });
 
-function createTodoItemStore(todo) {
-  const todoItem = {};
-  todoItem.todo = todo;
-  todoItem.completed = false;
-  return todoItem;
-}
-
-function deleteTodoItemStore(key, target) {
-  const todoLists = JSON.parse(localStorage.getItem("todoLists"));
-  todoLists.forEach((todoList, i) => {
-    if (todoList.title === key) {
-      todoList.todos.forEach((item, i) => {
-        if (item.todo === target) todoList.todos.splice(i, 1);
-      });
-      if (todoList.todos.length === 0) {
-        todoLists.splice(i, 1);
-      }
-    }
-  });
-  localStorage.setItem("todoLists", JSON.stringify(todoLists));
-}
-
-function createTodoListStore(title, todo) {
-  const todoList = {};
-  todoList.title = title;
-  todoList.todos = [{ todo, completed: false }];
-  return todoList;
-}
-
-function completedTodoItemStore(key, target) {
-  const todoLists = JSON.parse(localStorage.getItem("todoLists"));
-  todoLists.forEach((todoList) => {
-    if (todoList.title === key) {
-      todoList.todos.forEach((item) => {
-        if (item.todo === target.innerText) {
-          if (target.classList.contains("completed")) {
-            item.completed = true;
-          } else {
-            item.completed = false;
-          }
-        }
-      });
-    }
-  });
-  localStorage.setItem("todoLists", JSON.stringify(todoLists));
-}
-
-function completedTodo(target) {
-  target.classList.toggle("completed");
-}
-
-function removeTodo(target) {
-  target.remove();
-}
-
-function getWeek(date) {
-  const weekArr = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ];
-  return weekArr[date.getDay() - 1];
-}
-
-function dateFormatter(date, format) {
-  const formatMap = {
-    YYYY: (date) => date.getFullYear(),
-    MM: (date) => date.getMonth() + 1,
-    DD: (date) => date.getDate(),
-  };
-  Object.keys(formatMap).forEach((formatKey) => {
-    format = format.replaceAll(formatKey, formatMap[formatKey](date));
-  });
-  return format;
-}
-
-function loadLists() {
-  const todoLists = JSON.parse(localStorage.getItem("todoLists"));
-  if (todoLists) {
-    todoLists.forEach((todoList) => {
-      createTodoList(todoList);
-    });
+// Drag and drop to change order.
+let globalKey;
+document.addEventListener("dragstart", (e) => {
+  e.dataTransfer.setData("data", [e.target.innerText, e.target.classList]);
+  globalKey = e.target.parentNode.parentNode.querySelector("h3").innerText;
+  console.log(globalKey, "globalKey");
+  if (e.target.classList.contains("todo")) {
+    e.target.classList.add("drag");
   }
-}
+});
 
-function createTodoList(todoList) {
-  const parentNode = document.querySelector(".lists");
-  const div = document.createElement("div");
-  div.setAttribute("class", "list");
-  const h3 = document.createElement("h3");
-  h3.setAttribute("class", "date");
-  h3.innerText = todoList.title;
-  div.append(h3);
-  const ul = document.createElement("ul");
-  todoList.todos.forEach((item) => addTodo(item, ul));
-  div.append(ul);
-  parentNode.append(div);
-}
+document.addEventListener("dragend", (e) => {
+  const curKey = e.target.parentNode.parentNode.querySelector("h3").innerText;
+  if (e.target.classList.contains("todo") && curKey === globalKey) {
+    e.target.classList.remove("drag");
+  }
+});
 
-function addTodo(item, parentNode) {
-  const li = document.createElement("li");
-  const classNames = item.completed ? "todo completed" : "todo";
-  li.setAttribute("class", classNames);
-  li.innerText = item.todo;
-  parentNode.append(li);
-}
+document.addEventListener("dragover", (e) => {
+  const curKey = e.target.parentNode.parentNode.querySelector("h3").innerText; // TODO:Uncaught TypeError: Cannot read properties of null (reading 'innerText')
+  if (e.target.classList.contains("todo") && curKey === globalKey) {
+    e.dataTransfer.dropEffect = "move";
+  } else {
+    e.dataTransfer.dropEffect = "none";
+  }
+  e.preventDefault();
+});
+
+document.addEventListener("drop", (e) => {
+  const curKey = e.target.parentNode.parentNode.querySelector("h3").innerText;
+  if (e.target.classList.contains("todo") && curKey === globalKey) {
+    const storeArr = changeTodoOrder(e.dataTransfer.getData("data"), e.target);
+    changeTodoOrderStore(storeArr, globalKey);
+    // e.target.classList.remove("drag");
+  }
+});
+
+document.addEventListener("dragenter", (e) => {
+  const curKey = e.target.parentNode.parentNode.querySelector("h3").innerText; // TODO:Uncaught TypeError: Cannot read properties of null (reading 'innerText')
+  if (e.target.classList.contains("todo") && curKey === globalKey) {
+    e.target.classList.add("drag");
+  }
+});
+
+document.addEventListener("dragleave", (e) => {
+  const curKey = e.target.parentNode.parentNode.querySelector("h3").innerText; // TODO:Uncaught TypeError: Cannot read properties of null (reading 'innerText')
+  if (e.target.classList.contains("todo") && curKey === globalKey) {
+    e.target.classList.remove("drag");
+  }
+});
