@@ -1,0 +1,143 @@
+:root {
+  --primary-color: #519259;
+  --dark-color: #064635;
+  --light-color: #f0bb62;
+  --lighter-color: #f4eea9;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--primary-color);
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: #fff;
+}
+
+textarea {
+  font-size: 1.5rem;
+  width: 36rem;
+  height: 16rem;
+  outline: none;
+  padding: 1rem;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Global */
+.container {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.show {
+  display: block !important;
+}
+
+/* Header */
+header {
+  max-height: 16vh;
+}
+header h1 {
+  color: var(--lighter-color);
+  font-size: 4rem;
+  padding: 1.8rem 0;
+}
+
+/* Main */
+main {
+  min-height: 80vh;
+}
+
+/* Section */
+.menu-content {
+  width: 36rem;
+  margin: auto;
+  color: #222;
+}
+
+.menu-content .fas {
+  font-size: 2.4rem;
+}
+
+.menu-content nav {
+  width: 100%;
+  padding-left: 1rem;
+}
+
+.menu-content ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-content ul li {
+  width: 50%;
+  padding-bottom: 1rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.menu-content ul li .text-des {
+  display: inline-block;
+  position: relative;
+  z-index: -2;
+}
+
+.menu-content ul li .fas {
+  position: relative;
+  z-index: -1;
+}
+
+.menu-content ul li.selected {
+  border-bottom: 4px solid var(--dark-color);
+}
+
+.choices-1-content,
+.choices-2-content {
+  padding-top: 1rem;
+  position: relative;
+  display: none;
+}
+
+.describe {
+  padding: 1rem 0;
+}
+
+.choices-1-content .textarea-container {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+ul.produce-choices {
+  margin-top: 1rem;
+  display: flex;
+}
+
+ul.produce-choices li:first-child {
+  margin-left: 0;
+}
+
+ul.produce-choices li {
+  padding: 0.5rem;
+  margin-left: 0.4rem;
+  background: var(--light-color);
+  border-radius: 1rem;
+}
+
+ul.produce-choices li.selected {
+  background: var(--dark-color);
+}
+
+/* Footer */

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
+    <title>Random Choice Picker</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>What to eat today?</h1>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <section class="menu-content">
+          <nav>
+            <ul>
+              <li id="choices-1" class="tab selected">
+                <i class="fas fa-cookie-bite"></i>
+                <div class="text-des">Just a meal</div>
+              </li>
+              <li id="choices-2" class="tab">
+                <i class="fas fa-book"></i>
+                <div class="text-des">Mystery cookbook</div>
+              </li>
+            </ul>
+          </nav>
+        </section>
+        <section class="choices-1-content content show">
+          <h3 class="describe">
+            Enter all of the choices divided by a plus sign ('+').<br />
+            Press enter when you're done
+          </h3>
+          <div class="textarea-container">
+            <textarea
+              id="enter-choices"
+              placeholder="Enter choices here..."
+            ></textarea>
+            <ul class="produce-choices">
+              <!-- <li class="selected">蒜薹炒肉</li>
+              <li>水煮肉片</li>
+              <li>酸辣土豆丝</li> -->
+            </ul>
+          </div>
+        </section>
+        <section class="choices-2-content content">
+          <h3>Coming soon...</h3>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <cite>Power by <a href="https://github.com/HappyYYT">HappyYYT</a></cite>
+      </div>
+    </footer>
+  </body>
+  <script src="./main.js"></script>
+</html>
