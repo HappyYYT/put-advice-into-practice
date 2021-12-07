@@ -1,14 +1,14 @@
 export function getWeek(date) {
   const weekArr = [
+    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
     "Saturday",
-    "Sunday",
   ];
-  return weekArr[date.getDay() - 1];
+  return weekArr[date.getDay()];
 }
 
 export function dateFormatter(date, format) {

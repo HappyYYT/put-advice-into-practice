@@ -89,7 +89,7 @@ main {
 }
 
 .menu-content ul li .text-des {
-  display: inline-block;
+  /* display: inline-block; */
   position: relative;
   z-index: -2;
 }

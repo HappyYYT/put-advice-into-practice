@@ -25,6 +25,7 @@ loadListenForTab();
 function selectItem(e) {
   removeBorder();
   removeShow();
+  console.log(e.target);
   e.target.classList.add("selected");
   const tabContentItem = document.querySelector(`.${e.target.id}-content`);
   tabContentItem.classList.add("show");
@@ -43,8 +44,14 @@ function removeShow() {
 function loadListenForTab() {
   const tabItems = document.querySelectorAll(".tab");
   tabItems.forEach((item) =>
-    item.addEventListener("click", (e) => selectItem(e))
+    item.addEventListener("click", selectItem)
   );
+  // tabItems.forEach((item) =>
+  //   item.addEventListener("click", function() {
+  //     const _this = this;
+  //     const e = {target:_this}
+  //     selectItem(e);
+  //   } )
 }
 
 document.querySelectorAll("tab").forEach((tab) => {
