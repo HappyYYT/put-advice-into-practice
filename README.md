@@ -32,4 +32,68 @@ This advice can be divided into two parts：The Building Blocks and Deployment.
   - Udemy Courses: Modern HTML & CSS From The Beginning
   - Udemy Courses: 50 Projects In 50 Days / [GitHub: 50 Projects In 50 Days](https://github.com/bradtraversy/50projects50days)
 
+##### Deployment
+  - Basic Frontend Deployment
+    -  Static Hosting
+    -  CPanel Hosting
+    -  Methods of Deploying
+    -  Some other things you will run into during a basic deployment
+
+:point_right:resouces: 
+  - [YouTube Videos: Deploying Sites With Netlify](https://www.youtube.com/watch?v=bjVUqvcCnxM)
+  - [YouTube Videos: Build & Deploy a Portfolio Website](https://www.youtube.com/watch?v=r_hYR53r61M)
+  - [YouTube Videos: Github Pages Deploy & Domain](https://www.youtube.com/watch?v=SKXkC4SqtRk)
+  - [YouTube Videos: Web Hosting & CPanel Guide](https://www.youtube.com/watch?v=UN7S4zd8h-k)
+
+#### :two: Become a Frontend Superstar
+  - Build apps and interfaces with a frontend framework
+  - Work with component and global state
+  - Connect to backend JSON data integrate into your apps
+  - Write and test clean and efficient code
+  - Option: 
+    - Use TypeScript to write more robust code
+    - Server side rendering
+    - Static site generators / Jamstack
+
+This advice can be divided into 7 parts:
+
+##### Frontend Framework(Choose One)
+  - React
+  - Vue
+  - Angular
+  - Svelte
+  - State Management 
+    - React
+      - Context
+      - Redux
+      - MobX
+    - Vue 
+      - Vuex  
+    - Angular
+      - Shared Service
+      - NgRx  
+    - Svelte
+      - Context API
+
+:point_right:resouces: 
+  - [YouTube Videos: React Crash Course](https://www.youtube.com/watch?v=w7ejDZ8SWv8)
+  - [YouTube Videos: React Project Playlist](https://www.youtube.com/watch?v=XuFDcZABiDQ&list=PLillGF-RfqbY3c2r0htQyVbDJJoBFE6Rb)
+  - [YouTube Videos: Vue Crash Course](https://www.youtube.com/watch?v=qZXt1Aom3Cs)
+  - [YouTube Videos: Angular Crash Course](https://www.youtube.com/watch?v=3dHNOWTI7H8)
+  - [YouTube Videos: Redux Crash Course](https://www.youtube.com/watch?v=93p3LxR9xfM)
+  - [YouTube Videos: Vuex Crash Course](https://www.youtube.com/watch?v=5lVQgZzLMHc)
+
+
+##### Typescript
+
+##### Testing
+
+##### Server Side Rendering(Choose One)
+
+##### Static Site Generators(Choose One)
+
+##### Headless CMS(Choose One)
+
+##### The Jamstack-JavaScript, APIs & Marku
+
 See you next week :v:
