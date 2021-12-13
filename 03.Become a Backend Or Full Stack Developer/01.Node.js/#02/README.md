@@ -1,0 +1,5 @@
+- 1.node basics
+- 2.the global object
+- 3.modules & require
+- 4.node & the file system (creating reading, deleting files etc)
+- 5.streams & buffers
