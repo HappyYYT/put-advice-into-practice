@@ -96,4 +96,16 @@ This advice can be divided into 7 parts:
 
 ##### The Jamstack-JavaScript, APIs & Marku
 
+#### :three: Become a Backend / Full Stack Developer
+ - Node.js
+
+:point_right:resouces: 
+  - [YouTube Videos: Node.js Crash Course Tutorial](https://www.youtube.com/playlist?list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU)
+
+#### :four: With Mobile Experience
+  - Flutter/Dart
+
+:point_right:resouces: 
+  - [YouTube Videos: Flutter Tutorial for Beginners](https://www.youtube.com/playlist?list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ)
+
 See you next week :v:
